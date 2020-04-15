@@ -5,15 +5,15 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-import br.edu.unicid.bean.Aluno;
-import br.edu.unicid.dao.AlunoDAO;
+import br.edu.unicid.dao.FrentistaDAO;
+import br.unicid.posto.bean.Frentista;
 
 
-@WebServlet("/incluir.aluno")
+@WebServlet("/incluir.frentista")
 
-public class ServletAlunoCadastrar extends HttpServlet {
+public class ServletFrentistaCadastrar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public ServletAlunoCadastrar() {
+	public ServletFrentistaCadastrar() {
 		super();
 	} 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -23,22 +23,20 @@ public class ServletAlunoCadastrar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 
-		//criando o objeto aluno
+		
 
 		try {
 		
-			Aluno aluno = new Aluno();
+			Frentista frentista = new Frentista();
 		
-			AlunoDAO alunoDAO = new AlunoDAO();
+			FrentistaDAO frentistaDAO = new FrentistaDAO();
 		
-		//aluno sets valores
-		aluno.setCaAluno(Integer.parseInt(request.getParameter("ca")));
-		aluno.setNomeAluno(request.getParameter("nome"));
-		aluno.setEmailAluno(request.getParameter("email"));
-		aluno.setDtaNasc(request.getParameter("dt_nasc"));
-		aluno.setEndAluno(request.getParameter("endereco"));
+	
+		frentista.setSalarioFrentista(Integer.parseInt(request.getParameter("salario")));
+		frentista.setNomeFrentista(request.getParameter("nome"));
+		
 					
-			alunoDAO.salvar(aluno); 	
+			frentistaDAO.salvar(frentista); 	
 
 
 		} catch (Exception e) {

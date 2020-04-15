@@ -8,13 +8,13 @@ public class ConnectionFactory {
 
 		try {
 
-			// indica qual é o banco de dados que estou utilizando e seu driver
+			
 
 			Class.forName("com.mysql.jdbc.Driver");
 
-			// estabelece a conexao e retorna uma conexao
+			
 
-			String url = "jdbc:mysql://localhost:3306/BDAlunoCienciaComp";
+			String url = "jdbc:mysql://localhost:3306/BDFrentistaCienciaComp";
 			String login = "root";
 			String senha = "";
 			return DriverManager.getConnection(url,login,senha);
@@ -23,7 +23,7 @@ public class ConnectionFactory {
 		}
 	}
 
-	// fecha uma conexão de três formas: conn, stmt, rs
+	
 
 	public static void closeConnection(Connection conn, Statement stmt,
 			ResultSet rs) throws Exception {

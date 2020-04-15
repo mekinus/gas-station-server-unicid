@@ -4,15 +4,15 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.uncid.posto.bean;
+import br.unicid.posto.bean.Frentista;
 import br.edu.unicid.util.ConnectionFactory;
 
-public class AlunoDAO {
+public class FrentistaDAO {
 	private Connection conn;
 	private PreparedStatement ps;
 
-	public AlunoDAO() throws Exception {
-		// chama a classe ConnectionFactory e estabele uma conexão
+	public FrentistaDAO() throws Exception {
+		
 		try {
 			this.conn = ConnectionFactory.getConnection();
 		} catch (Exception e) {
@@ -20,23 +20,18 @@ public class AlunoDAO {
 		}
 	}
 
-	// método de salvar
+	
 
-	public void salvar(Aluno aluno) throws Exception {
-		if (aluno == null)
+	public void salvar(Frentista frentista) throws Exception {
+		if (frentista == null)
 			throw new Exception("O valor passado nao pode ser nulo");
 		try {
-			String SQL = "INSERT INTO tbAluno (caAluno, "
-					+ "nomeAluno, emailAluno, dtaNasc, "
-					+ "endAluno) "
-					+ "values (?, ?, ?, ?, ?)";
+			String SQL = "INSERT INTO tbFrentista (nomeFrentista, salarioFrentista "
+					+ "values (?, ?)";
 
 			ps = this.conn.prepareStatement(SQL);
-			ps.setInt(1, aluno.getCaAluno());
-			ps.setString(2, aluno.getNomeAluno());
-			ps.setString(3, aluno.getEmailAluno());
-			ps.setString(4, aluno.getDtaNasc());
-			ps.setString(5, aluno.getEndAluno());
+			ps.setFloat(1, frentista.getSalarioFrentista());
+			ps.setString(2, frentista.getNomeFrentista());
 			ps.executeUpdate();
 			
 		} catch (SQLException sqle) {

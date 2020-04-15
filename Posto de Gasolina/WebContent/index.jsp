@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Sistema Acadêmico</title>
+<title>Posto de Gasolina</title>
 </head>
 <body>
-	<center><h3>Cadastro de Alunos</h3>
-	<a href="incluir.jsp" >Incluir Alunos</a><br>
-	<a href="alterar.jsp" >Alterar Alunos</a><br>
-	<a href="consultar.jsp" >Consultar Alunos</a><br>
-	<a href="excluir.jsp" >Excluir Alunos</a><br>
-	<a href="listar.aluno" >Listar Alunos</a><br>
+	<center><h3>Cadastro de Frentistas</h3>
+	<a href="incluir.jsp" >Incluir Frentistas</a><br>
+	<a href="alterar.jsp" >Alterar Frentistas</a><br>
+	<a href="consultar.jsp" >Consultar Frentistas</a><br>
+	<a href="excluir.jsp" >Excluir Frentistas</a><br>
+	<a href="listar.aluno" >Listar Frentistas</a><br>
 	</center>
 </body>
 </html>
