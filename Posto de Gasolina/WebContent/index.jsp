@@ -9,10 +9,7 @@
 <body>
 	<center><h3>Cadastro de Frentistas</h3>
 	<a href="incluir.jsp" >Incluir Frentistas</a><br>
-	<a href="alterar.jsp" >Alterar Frentistas</a><br>
-	<a href="consultar.jsp" >Consultar Frentistas</a><br>
-	<a href="excluir.jsp" >Excluir Frentistas</a><br>
-	<a href="listar.aluno" >Listar Frentistas</a><br>
+	<a href="frentista_listar.jsp" >Listar Frentistas</a><br>
 	</center>
 </body>
 </html>

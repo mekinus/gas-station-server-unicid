@@ -5,15 +5,17 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
+import br.edu.unicid.dao.BombaDAO;
 import br.edu.unicid.dao.FrentistaDAO;
+import br.unicid.posto.bean.Bomba;
 import br.unicid.posto.bean.Frentista;
 
 
-@WebServlet("/incluir.frentista")
+@WebServlet("/incluir.bomba")
 
-public class ServletFrentistaCadastrar extends HttpServlet {
+public class ServletBombaCadastrar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public ServletFrentistaCadastrar() {
+	public ServletBombaCadastrar() {
 		super();
 	} 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
@@ -27,16 +29,16 @@ public class ServletFrentistaCadastrar extends HttpServlet {
 
 		try {
 		
-			Frentista frentista = new Frentista();
+			Bomba bomba = new Bomba();
 		
-			FrentistaDAO frentistaDAO = new FrentistaDAO();
+			BombaDAO BombaDAO = new BombaDAO();
 		
 	
-		frentista.setSalarioFrentista(Integer.parseInt(request.getParameter("salario")));
-		frentista.setNomeFrentista(request.getParameter("nome"));
+		bomba.setQuantidadeDeCombustivel(Float.parseFloat(request.getParameter("quantidadeDeCombustivel")));
+		bomba.setNumero(Integer.parseInt(request.getParameter("numero")));
 		
 					
-			frentistaDAO.salvar(frentista); 	
+			BombaDAO.salvar(bomba); 	
 
 
 		} catch (Exception e) {
@@ -44,7 +46,7 @@ public class ServletFrentistaCadastrar extends HttpServlet {
 		}
 		
 
-		request.setAttribute("menssagem", "Cadastrou Frentista "+request.getParameter("nome")); 
+		request.setAttribute("menssagem", "Cadastrou Bomba "+request.getParameter("nome")); 
 		RequestDispatcher rd = request.getRequestDispatcher("incluir.jsp"); 
 		rd.forward(request, response); 
 	}

@@ -26,12 +26,11 @@ public class FrentistaDAO {
 		if (frentista == null)
 			throw new Exception("O valor passado nao pode ser nulo");
 		try {
-			String SQL = "INSERT INTO tbFrentista (nomeFrentista, salarioFrentista "
-					+ "values (?, ?)";
+			String SQL = "INSERT INTO tbfrentista (nomeFrentista, salarioFrentista)" + "values (?, ?)";
 
 			ps = this.conn.prepareStatement(SQL);
-			ps.setFloat(1, frentista.getSalarioFrentista());
-			ps.setString(2, frentista.getNomeFrentista());
+			ps.setString(1, frentista.getNomeFrentista());
+			ps.setFloat(2, frentista.getSalarioFrentista());
 			ps.executeUpdate();
 			
 		} catch (SQLException sqle) {
@@ -39,5 +38,39 @@ public class FrentistaDAO {
 		} finally {
 			ConnectionFactory.closeConnection(conn, ps);
 		}
+	}
+
+
+	public List<Frentista> listar() throws Exception {
+		List<Frentista> listaFrentistas = new ArrayList<Frentista>();
+		try {
+			String SQL = "Select * from tbfrentista";
+			
+			ps = this.conn.prepareStatement(SQL);
+			ResultSet dados = ps.executeQuery();
+			while(dados.next()) {
+				Frentista frentista = new Frentista();
+				
+				frentista.setNomeFrentista(dados.getString("nomeFrentista"));
+				frentista.setSalarioFrentista(dados.getInt("salarioFrentista"));
+			    
+				
+				
+				listaFrentistas.add(frentista);
+				
+			}
+			
+		}
+		
+		catch(Exception sqle)
+		{
+			throw new Exception ("erro ao consultar o banco " + sqle); 
+		}
+		
+		finally {
+			ConnectionFactory.closeConnection(conn, ps);
+		}
+		
+		return listaFrentistas;		
 	}
 }

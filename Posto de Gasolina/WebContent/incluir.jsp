@@ -10,7 +10,7 @@
 </head>
 <body>
 
- <form action=" ${pageContext.request.contextPath}/incluir.aluno" method="get">
+ <form action=" ${pageContext.request.contextPath}/incluir.frentista" method="get">
 
 <table style="width:50%" border = "1px" align ="center">
   <tr>
@@ -19,7 +19,7 @@
   
   <tr>
     <th>Salário :</th>
-    <td><input type="text" name="ca"></td>     
+    <td><input type="text" name="salario"></td>     
   </tr>
   
   <tr>
