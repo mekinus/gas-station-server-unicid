@@ -36,6 +36,7 @@ public class ServletBombaCadastrar extends HttpServlet {
 	
 		bomba.setQuantidadeDeCombustivel(Float.parseFloat(request.getParameter("quantidadeDeCombustivel")));
 		bomba.setNumero(Integer.parseInt(request.getParameter("numero")));
+		bomba.setValor(Float.parseFloat(request.getParameter("valor")));
 		
 					
 			BombaDAO.salvar(bomba); 	
@@ -46,8 +47,8 @@ public class ServletBombaCadastrar extends HttpServlet {
 		}
 		
 
-		request.setAttribute("menssagem", "Cadastrou Bomba "+request.getParameter("nome")); 
-		RequestDispatcher rd = request.getRequestDispatcher("incluir.jsp"); 
+		request.setAttribute("menssagem", "Cadastrou Bomba "+request.getParameter("numero")); 
+		RequestDispatcher rd = request.getRequestDispatcher("incluir_bomba.jsp"); 
 		rd.forward(request, response); 
 	}
 }

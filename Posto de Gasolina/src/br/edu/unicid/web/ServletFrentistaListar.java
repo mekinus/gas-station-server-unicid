@@ -57,12 +57,14 @@ public class ServletFrentistaListar extends HttpServlet {
 					jspListaFrentista.add(bdListaFrentista.get(j));
 				}
 				
-				Map frentistaMap = new HashMap();
+			
+				Map<String,String> frentistaMap = new HashMap<String,String>();
 				 
 				frentistaMap.put("nome", frentista.getNomeFrentista());
-				frentistaMap.put("salario",frentista.getSalarioFrentista());
+				frentistaMap.put("salario",String.valueOf(frentista.getSalarioFrentista()));
 			
-				jspListaFrentista.add((Frentista) frentistaMap);			
+				jspListaFrentista.add(new Frentista(frentistaMap.get(i),500 + i));			
+				System.out.println(jspListaFrentista.get(i));
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

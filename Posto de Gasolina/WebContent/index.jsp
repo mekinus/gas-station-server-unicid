@@ -11,5 +11,10 @@
 	<a href="incluir.jsp" >Incluir Frentistas</a><br>
 	<a href="frentista_listar.jsp" >Listar Frentistas</a><br>
 	</center>
+	
+	<center><h3>Cadastro de Bombas</h3>
+	<a href="incluir_bomba.jsp" >Incluir Bombas</a><br>
+	<a href="bomba_listar.jsp" >Listar Bombas</a><br>
+	</center>
 </body>
 </html>
